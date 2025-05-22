@@ -29,9 +29,9 @@ Save the trained model to caption.pth
 ## Model Output
 
 During training, the script prints the average loss per epoch. After training, the model checkpoint contains:
-Encoder weights
-Decoder weights
-Vocabulary (word2idx mapping)
+Encoder weights,
+Decoder weights,
+Vocabulary (word2idx mapping),
 This can be used for inference or further training.
 
 ## License
