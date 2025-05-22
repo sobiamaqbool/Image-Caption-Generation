@@ -12,7 +12,7 @@ Vocabulary: Custom vocabulary builder with a frequency threshold for including w
 
 Python 3.7+,
 PyTorch,
-Torchvis,ion
+Torchvision,
 NLTK,
 Pillow (PIL),
 tqdm,
