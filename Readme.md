@@ -10,15 +10,13 @@ Vocabulary: Custom vocabulary builder with a frequency threshold for including w
 
 ## Requirements
 
-Python 3.7+
-PyTorch
-Torchvision
-NLTK
-Pillow (PIL)
-tqdm
+Python 3.7+,
+PyTorch,
+Torchvis,ion
+NLTK,
+Pillow (PIL),
+tqdm,
 NumPy
-Install dependencies using:
-pip install -r requirements.txt
 
 ## Training
 
