@@ -1,20 +1,6 @@
-## Image Captioning with CNN-RNN (Flickr8k Dataset)
+# Image Captioning with CNN-RNN (Flickr8k Dataset)
 
 This project implements an image captioning model using a Convolutional Neural Network (CNN) as the encoder and a Recurrent Neural Network (RNN) as the decoder. The model is trained on the Flickr8k dataset to generate textual descriptions for images.
-
-**Project Structure:**
-image_captioning/
-│
-├── caption.pth                    # Saved model (encoder + decoder + vocabulary)
-├── train.py                       # Main training script
-├── README.md                      # Project documentation
-├── requirements.txt               # Python package requirements
-│
-└── data/
-    ├── Flickr8k_Dataset/          # Folder with training images
-    └── Flickr8k_text/
-        ├── Flickr8k.token.txt     # Captions file
-        ├── Flickr_8k.trainImages.txt  # List of training image filenames
 
 ## Model Architecture
 
@@ -42,7 +28,7 @@ Load and preprocess image-caption pairs
 Train the encoder and decoder for 20 epochs
 Save the trained model to caption.pth
 
-# Model Output
+## Model Output
 
 During training, the script prints the average loss per epoch. After training, the model checkpoint contains:
 Encoder weights
@@ -50,7 +36,7 @@ Decoder weights
 Vocabulary (word2idx mapping)
 This can be used for inference or further training.
 
-# License
+## License
 
 This project is intended for academic and educational purposes. Make sure you adhere to the licensing terms of the Flickr8k dataset.
 
