@@ -39,7 +39,8 @@ This repository implements an image captioning model based on:
 ---
 
 ##  Setup Guide
-1. Clone the repo:
+
+1. Clone the repository
 ```bash
 git clone https://github.com/sobiamaqbool/Image-Caption-Generation.git
 cd Image-Caption-Generation
