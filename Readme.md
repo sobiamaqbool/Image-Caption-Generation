@@ -39,13 +39,14 @@ This repository implements an image captioning model based on:
 ---
 
 ##  Setup Guide
-
-### 1. Clone the repo:
+## 1. Clone the repo:
 ```bash
 git clone https://github.com/sobiamaqbool/Image-Caption-Generation.git
 cd Image-Caption-Generation
-. Install dependencies:
+
+2. Install dependencies:
 pip install -r requirements.txt
+
 3. Prepare the dataset:
 Download Flickr8k (images + captions.txt)
 Organize as:
@@ -72,9 +73,7 @@ From images in a folder:
 python generate.py \
   --model models/cap_model.h5 \
   --image_dir test_images/
-Real-time demo (e.g., via GUI or notebook)
-(Include command or notebook link here)
-📈 Evaluation
+## Evaluation
 After training, run:
 python evaluate.py \
   --model models/cap_model.h5 \
