@@ -1,41 +1,83 @@
-# Image Captioning with CNN-RNN (Flickr8k Dataset)
+#  Image Caption Generation
 
-This project implements an image captioning model using a Convolutional Neural Network (CNN) as the encoder and a Recurrent Neural Network (RNN) as the decoder. The model is trained on the Flickr8k dataset to generate textual descriptions for images.
+A neural image captioning system that generates natural language descriptions of images using encoder-decoder architectures with attention mechanisms.
 
-## Model Architecture
+---
 
-Encoder: Pretrained ResNet-18 (excluding the classification layer), followed by a linear transformation to the embedding space.
-Decoder: LSTM with an embedding layer and a linear output layer that predicts the next word in the sequence.
-Vocabulary: Custom vocabulary builder with a frequency threshold for including words.
+##  Project Overview
 
-## Requirements
+This repository implements an image captioning model based on:
 
-Python 3.7+,
-PyTorch,
-Torchvision,
-NLTK,
-Pillow (PIL),
-tqdm,
-NumPy
+- **Encoder**: Pre-trained CNN (e.g., VGG16, InceptionV3, or ResNet) to extract visual features.
+- **Decoder**: LSTM (with optional attention) that generates captions word-by-word.
+- **Training Data**: Flickr8k dataset (or similar), where each image has multiple associated captions.
+- **Attention Mechanism**: Improves performance by focusing on relevant image regions during word generation.
 
-## Training
+---
 
-Download the NLTK tokenizer
-Build the vocabulary from all captions
-Load and preprocess image-caption pairs
-Train the encoder and decoder for 20 epochs
-Save the trained model to caption.pth
+##  Features
 
-## Model Output
+- Extract image features via pre-trained CNN
+- Text preprocessing and tokenization
+- Attention-enabled caption generation
+- Support for greedy and beam search decoding
+- Evaluation with BLEU scores and other metrics
+- (Optional) GUI or notebook interface for demonstration
 
-During training, the script prints the average loss per epoch. After training, the model checkpoint contains:
-Encoder weights,
-Decoder weights,
-Vocabulary (word2idx mapping),
-This can be used for inference or further training.
+---
 
-## License
+##  Tech Stack & Dependencies
 
-This project is intended for academic and educational purposes. Make sure you adhere to the licensing terms of the Flickr8k dataset.
+- **Python** 3.7+
+- **Deep Learning**: TensorFlow/Keras or PyTorch
+- **Data Handling**: `numpy`, `pandas`, `pickle`
+- **Image Tools**: `Pillow`, `opencv-python`
+- **Evaluation**: `nltk` (BLEU), `scikit-learn`
+- *(Optional GUI)*: `tkinter` or `streamlit`
+- See `requirements.txt` for exact versions
 
+---
 
+##  Setup Guide
+
+### 1. Clone the repo:
+```bash
+git clone https://github.com/sobiamaqbool/Image-Caption-Generation.git
+cd Image-Caption-Generation
+. Install dependencies:
+pip install -r requirements.txt
+3. Prepare the dataset:
+Download Flickr8k (images + captions.txt)
+Organize as:
+Flickr8k/
+  Images/
+  captions.txt
+4. Preprocess captions & build tokenizer:
+python preprocess_captions.py \
+  --captions captions.txt \
+  --output_dir data/
+5. Extract image features:
+python extract_features.py \
+  --image_dir Flickr8k/Images \
+  --model vgg16 \
+  --output features.pkl
+6. Train the captioning model:
+python train.py \
+  --features data/features.pkl \
+  --captions data/captions.pkl \
+  --epochs 20 \
+  --model_out models/cap_model.h5
+7. Generate captions:
+From images in a folder:
+python generate.py \
+  --model models/cap_model.h5 \
+  --image_dir test_images/
+Real-time demo (e.g., via GUI or notebook)
+(Include command or notebook link here)
+📈 Evaluation
+After training, run:
+python evaluate.py \
+  --model models/cap_model.h5 \
+  --test_features data/test_features.pkl \
+  --test_captions data/test_captions.pkl
+Outputs BLEU-1 to BLEU-4 scores and sample caption comparisons.
